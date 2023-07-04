@@ -39,7 +39,7 @@ export async function generateMetadata({
     return {}
   }
 
-  const url = env.NEXT_PUBLIC_APP_URL
+  const url = env.NEXT_PUBLIC_VERCEL_URL
 
   const ogUrl = new URL(`${url}/api/og`)
   ogUrl.searchParams.set("heading", doc.description ?? doc.title)
@@ -91,7 +91,7 @@ export default async function DocPage({ params }: DocPageProps) {
 
   return (
     <main className="relative py-6 lg:gap-10 lg:py-10 xl:grid xl:grid-cols-[1fr_300px]">
-      <div className="mx-auto w-full min-w-0">
+      <div className="w-full min-w-0 mx-auto">
         <DocsPageHeader heading={doc.title} text={doc.description} />
         <Mdx code={doc.body.code} />
         <hr className="my-4 md:my-6" />
